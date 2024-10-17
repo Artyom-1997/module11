@@ -1,0 +1,65 @@
+# Requests
+
+# Возможности:
+# - Выполнение HTTP-запросов.
+# - Поддержка методов GET, POST, PUT, DELETE и др.
+# - Работа с параметрами запросов и заголовками.
+# - Простое управление сессиями и куки.
+
+import requests
+
+def fetch_posts():
+    """Выполнение GET-запроса и вывод данных."""
+    response = requests.get('https://jsonplaceholder.typicode.com/posts')
+    data = response.json()
+
+    # Вывод данных в консоль
+    for post in data:
+        print(f"Title: {post['title']}\nBody: {post['body']}\n")
+
+fetch_posts()
+# Pandas
+
+# Возможности:
+# - Работа с данными в табличном формате (DataFrame).
+# - Функции для обработки и анализа данных (фильтрация, группировка, агрегация и т.д.).
+# - Удобный ввод/вывод данных из различных форматов (CSV, Excel и др.).
+
+import pandas as pd
+
+def analyze_data(file_name):
+    """Чтение данных из CSV файла и анализ."""
+    df = pd.read_csv(file_name)
+
+    # Анализ данных: выводим статистику по числовым колонкам
+    print(df.describe())
+
+    # Группировка по определённой колонке и вывод среднего значения
+    grouped_data = df.groupby('column_name').mean()
+    print(grouped_data)
+
+analyze_data('data.csv')
+# Matplotlib
+
+# Возможности:
+# - Построение различных типов графиков (линейные, столбчатые, круговые и др.).
+# - Настройка графиков (подписи, легенды, цвета и т.д.).
+# - Сохранение графиков в различных форматах (PNG, PDF и др.).
+
+import matplotlib.pyplot as plt
+
+def plot_data(x, y):
+    """Построение графика и его сохранение."""
+    plt.plot(x, y, marker='o')
+    plt.title('Пример линейного графика')
+    plt.xlabel('Ось X')
+    plt.ylabel('Ось Y')
+    plt.grid()
+
+    plt.savefig('plot.png')  # Сохранение графика в файл
+    plt.show()  # Отображение графика
+
+# Данные для визуализации
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+plot_data(x, y)
